@@ -15,28 +15,6 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <repository>
-    <id>dev-azure.com-third-artifacts-demo</id>
-    <url>https://pkgs.dev.azure.com/vipulvadoliya/_packaging/Third-Artifacts-Demo/maven/v1</url>
-    <releases>
-      <enabled>true</enabled>
-    </releases>
-    <snapshots>
-      <enabled>true</enabled>
-    </snapshots>
-  </repository>
-  <distributionManagement>
-    <repository>
-      <id>dev-azure.com-third-artifacts-demo</id>
-      <url>https://pkgs.dev.azure.com/vipulvadoliya/_packaging/Third-Artifacts-Demo/maven/v1</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </distributionManagement>
   <build>
     <finalName>java-tomcat-maven-example</finalName>
     <plugins>
