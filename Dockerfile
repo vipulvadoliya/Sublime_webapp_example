@@ -1,7 +1,5 @@
-FROM java:8-jre
-
-RUN apt-get update
-RUN apt-get install tomcat
-COPY --from=node target/java-tomcat-maven-example.war java-tomcat-maven-example.war
+FROM tomcat:8.0.43-jre8
+ADD target/java-tomcat-maven-example.war /usr/local/tomcat/webapps/
 EXPOSE 9090
-ENTRYPOINT ["java","-jar","java-tomcat-maven-example.war"]
+CMD chmod +x /usr/local/tomcat/bin/catalina.sh
+CMD ["catalina.sh", "run"]
