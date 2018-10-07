@@ -1,0 +1,33 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2 
+kind: Deployment 
+metadata: 
+  name: sublime-deployment 
+spec: 
+  selector: 
+    matchLabels: 
+      app: sublime 
+  replicas: 3 # tells deployment to run 2 pods matching the template 
+  template:
+    metadata: 
+      labels: 
+        app: sublime 
+    spec: 
+      containers: 
+      - name: sublime 
+        image: vipulvadoliya/sublime-app:#{Build.BuildId}#
+        ports: 
+        - containerPort: 9090 
+--- 
+# https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service  
+kind: Service 
+apiVersion: v1 
+metadata: 
+  name: Sublime-service 
+spec: 
+  selector: 
+    app: sublime 
+  ports: 
+  - protocol: TCP 
+    port: 9090
+    targetPort: 9090 
+  type: LoadBalancer 
