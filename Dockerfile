@@ -19,5 +19,5 @@ RUN set -x \
 
 ADD ./java-tomcat-maven-example.war $CATALINA_HOME/webapps/
 
-EXPOSE 8080
+EXPOSE 9090
 CMD ["catalina.sh", "run"]
